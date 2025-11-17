@@ -12,9 +12,9 @@ spring:
           uri: https://github.com/EnGeL-322/Tienda-DEMO-Terminado.git # repositorio
           searchPaths:
             - config-data
-          default-label: ONESAN
+          default-label: main
 
   security:
     user:
-      name: daisqui
-      password: onichan
+      name: root
+      password: 123456
