@@ -11,12 +11,13 @@ spring:
         webflux:
           discovery:
             locator:
-              enabled: false
+              enabled: true
+              lower-case-service-id: true
 
           globalcors:
             add-to-simple-url-handler-mapping: true
             cors-configurations:
-              "[/**]":
+              '[/**]':
                 allowed-origins:
                   - "http://localhost:4200"
                 allowed-methods:
@@ -40,21 +41,21 @@ spring:
             - id: ms-compra-service
               uri: lb://ms-compra-service
               predicates:
-                - Path=/purchases/**
+                - Path=/purchases/**,/suppliers/**
               filters:
                 - name: AuthFilter
 
             - id: ms-inventario-service
               uri: lb://ms-inventario-service
               predicates:
-                - Path=/inventory/**
+                - Path=/inventory/**,/accounting/**
               filters:
                 - name: AuthFilter
 
             - id: ms-venta-service
               uri: lb://ms-venta-service
               predicates:
-                - Path=/sales/**
+                - Path=/sales/**,/customers/**
               filters:
                 - name: AuthFilter
 
@@ -64,11 +65,9 @@ spring:
                 - Path=/auth/**
               filters: []
 
-
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URI:http://localhost:8065/eureka}
-
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

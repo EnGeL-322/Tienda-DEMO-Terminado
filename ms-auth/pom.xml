@@ -67,7 +67,7 @@
             <version>0.9.1</version>
         </dependency>
 
-        <!-- Base de datos -->
+
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
@@ -88,6 +88,9 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+
     </dependencies>
 
     <dependencyManagement>
